@@ -22,7 +22,7 @@ class _ScoreScreenState extends State<ScoreScreen> {
 
   @override
   initState() {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _showAnimation = false;
       });

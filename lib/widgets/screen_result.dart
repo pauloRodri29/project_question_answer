@@ -15,6 +15,8 @@ class _RespondScreenState extends State<RespondScreen> {
   int _index = 0;
   int _points = 0;
   bool _isFinal = true;
+  bool _answer = false;
+  bool _correct = false;
 
 //Funçao para mudar as questões apresentadas
   changeQuestion() {
@@ -32,13 +34,6 @@ class _RespondScreenState extends State<RespondScreen> {
     setState(() {
       _index = 0;
       _isFinal = true;
-      startPoints();
-    });
-  }
-
-//Zerando a pontuação
-  startPoints() {
-    setState(() {
       _points = 0;
     });
   }
@@ -50,11 +45,20 @@ class _RespondScreenState extends State<RespondScreen> {
     });
   }
 
+//Vai mudar a cor do botão da resposta correta
+  changeColorButtonCorret() {
+    setState(() {});
+  }
+
 //Verficando se a respostas está certa
   respond(String awnser) {
     setState(() {
       if (awnser == widget.questions[_index]['answer']) {
+        _correct = true;
+        changeColorButtonCorret();
         addPoints();
+      } else {
+        _answer = true;
       }
       changeQuestion();
     });
@@ -83,6 +87,7 @@ class _RespondScreenState extends State<RespondScreen> {
                       respond(option);
                     },
                     text: option.toString(),
+                    changeColor: false,
                   ),
               ],
             )

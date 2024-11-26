@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_question_answer/widgets/screen_respond.dart';
+import 'package:project_question_answer/widgets/screen_result.dart';
 
 main() => runApp(const AnswerApp());
 
